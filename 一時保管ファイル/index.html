@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
+
+<script src="common/scripts/upload_and_drag_and_drop.js">
+<!--JavaScriptからPHPに値を渡したいから-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<style type="text/css">  
+<!--  
+#DnDBox {  
+    padding-top:50px;  
+    height: 70px;  
+    text-align : center;  
+    font-size: 1.5em;  
+    border: 4px dashed black;  
+}  
+-->  
+</style>  
+  </head>
+<body>
+<form action="upload.php" method="post" enctype="multipart/form-data" >
+    <div>  
+        <div id="DnDBox" class="DnD">  
+            ここにファイルをドラッグ&ドロップしてください  
+        </div>  
+        <ul id="waitingList" style="max-height: 200px; overflow-y: auto; margin-top: 10px;" name="userfile" type="file">  
+        </ul>  
+    </div>  
+    <input type="button" id="clearWaitList" value="クリア">  
+    <input type="button" id="upload" value="アップロード">  
+    <input type="submit" value="送信">
+    </form>
+</body>
+</html>
