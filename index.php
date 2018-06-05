@@ -9,19 +9,19 @@
 </head>
 <body>
 <header>
-<h1><a href="index.html"><img src="common/images/logo.png" alt="">このメンバー誰だっけ？？</a></h1><!--ここはGoogleFontsから読み込んでいるので、表示が少しだけ遅い-->
+<h1><a href="index.html"><img src="common/images/Nogizaka_logo.png" alt="">is_this_member_who</a></h1><!--ここはGoogleFontsから読み込んでいるので、表示が少しだけ遅い-->
 
 <nav><!--ナビゲーションメニューであることを明確にする-->
 <ul><!--ここにリストを作成した瞬間に、header h1のGoogleFontsによるフォントが変わってしまった-->
 <li><a href="index.html">トップ</a></li>
 <li><a href="news.html">お知らせ</a></li>
-<li><a href="about.html">工房について</a></li>
+<li><a href="about.html">サイトについて</a></li>
 <li><a href="contact.html">お問い合わせ</a></li>
 <ul>
 </nav>
 
 </header>
-<h1>このメンバー誰だっけ？？<br>新しく乃木坂46に興味を持った人を幸せにします</h1>
+<h1>このメンバー誰だっけ？？<br>画像からメンバーの名前を出力します</h1>
 <h2>名前の知りたいメンバーの画像を選択してね</h2>
 <form action="index.php" method="post" enctype="multipart/form-data">
 	<p>ファイル：<input type="file" name="userfile" size="40" /></p>
@@ -49,5 +49,10 @@ echo "<h1>この方は".$nogi_name."さんです！"."</h1>";
 echo "<img src='upload/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 }
 ?>
+
+<footer>
+<small>Copyright &copy; is_this_member_who,all rights reserved.</small>
+</footer>
+
 </body>
 </html>
