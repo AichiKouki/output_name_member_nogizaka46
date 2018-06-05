@@ -4,9 +4,23 @@
 <meta charset="UTF-8">
 <title></title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><!--必ずjQuery本体を先に読み込む-->
-<script src="common/scripts/display_loading.js"></script>
+<script src="common/scripts/display_loading.js"></script><!--ローディング画面表示機能-->
+<link rel="stylesheet" href="common/css/style.css"><!--ページ全体のデザイン-->
 </head>
 <body>
+<header>
+<h1><a href="index.html"><img src="common/images/logo.png" alt="">このメンバー誰だっけ？？</a></h1><!--ここはGoogleFontsから読み込んでいるので、表示が少しだけ遅い-->
+
+<nav><!--ナビゲーションメニューであることを明確にする-->
+<ul><!--ここにリストを作成した瞬間に、header h1のGoogleFontsによるフォントが変わってしまった-->
+<li><a href="index.html">トップ</a></li>
+<li><a href="news.html">お知らせ</a></li>
+<li><a href="about.html">工房について</a></li>
+<li><a href="contact.html">お問い合わせ</a></li>
+<ul>
+</nav>
+
+</header>
 <h1>このメンバー誰だっけ？？<br>新しく乃木坂46に興味を持った人を幸せにします</h1>
 <h2>名前の知りたいメンバーの画像を選択してね</h2>
 <form action="index.php" method="post" enctype="multipart/form-data">

@@ -1,0 +1,282 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Chango);/*@importは、CSSの設定を読み込むj*/
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900);/*ここで、GoogleFontsから複数のスタイルを利用できる(今回はCinzel Decorativeの3種類の太さの異なるフォントを利用する)*/
+/*font-family: 'Cinzel Decorative', cursive;
+		font-weight:900;(400か700か900の数字を入力して、これら二行をいずれかのセレクタに入力する)*/
+
+html	{overflow-y:scroll;}
+
+body	{font-family:'メイリオ',/*小さい文字でも滑らか表示できる。*/
+	'Hiragino Kaku Gothic Pro',
+	sans-serif;
+	background-color: #edede3;
+	margin:0px;
+	background-image:url(back.png);}/*デフォルトスタイルシートによって、ボックスの周りに余白が作られていたので、その余白を削除した*/
+
+h1	{font-size:38px;/*タイトルの文字のサイズを変更します。*/
+	margin-top:0;
+	margin-bottom:0px}
+
+
+p	{line-height:1.5}/*行の高さを変更します。*/
+
+/*ヘッダー*/
+header {background-color:#ffffff;/*ヘッダーの背景を白色にした*/
+	border-bottom:solid 1px #aaaaaa;/*罫線は、種類と太さと色を指定する*/
+	margin-bottom:30px;
+	-webkit- box-shadow:0 1px 7px #aaaaaa;
+	box-shadow:0 1px 7px #aaaaaa;
+	padding:5px
+	zoom:1;}
+
+header h1{font-family: 'Chango', cursive;/*header h1とは、headerの中のh1をデザインするということ*/
+	font-size:24px;/*縦方向の視線移動のみで負荷を軽減するためにarticleと配置をそろえた*/
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;}
+
+header h1 a	{text-decoration:none;
+		color:#000000;}
+
+header h1 a:hover{color:#000000;}
+
+
+header h1 img{vertical-align:-10px;
+		margin-right:5px;}
+
+/*記事*/
+article,#message{background-color:#ffffff;/*記事の背景を白色にした*/
+	width:900px;/*widthプロパティによって、記事の横幅を指定する*/
+	margin-left:auto;/*左側の余白を空ける*/
+	margin-right:auto;/*右側に余白を空けている*/
+	border:solid 1px #aaaaaa;/*article(記事)ボックスに罫*/
+	padding:30px;
+	-webkit-box-sizing:border-box;/*-webkit-とは、IOS4.XとAndroid2.3X/3Xのような古いバージョンでも反映させるために記述する*/
+	-moz-box-sizing:border-box;
+	-box-sizing:border-box;
+	margin-bottom:15px;
+	--webkit box-shadow:1px 1px 3px #aaaaaa;
+	border-radius:20px;
+	overflow:hidden;}
+
+/*フッター*/
+footer {width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	clear:both;}
+
+/*画像を中央に配置するレイアウト*/
+figure.photo-center{text-align:center;
+		margin-top:30px;
+		margin-bottom:px;}
+
+/*画像を左に配置するレイアウト*/
+figure.photo-left{margin:0;
+		margin-right:20px;
+		float:left;/*画像を左に配置して、右に文字が回り込むようにしている*/
+		text-align:center;/*画像や文字を横方向に行揃えする。今回は中央に配置*/
+		margin-bottom:20px;}
+
+figure.photo-left img{width:550px;}/*imgを直接操作するので、このようなセレクタの書き方をした*/
+
+/*画像を右に配置するレイアウト*/
+figure.photo-right{margin:0;
+		margin-left:20px;
+		float:right;
+		text-align:center;}
+
+figure.photo-right img{width:550px;}/*imgを直接操作するので、このようなセレクタの書き方をした*/
+
+/*小見出し*/
+h2	{clear:both;
+	border-bottom:solid 5px #c39f4a;
+	margin-top:30px;}
+
+/*リンク*/
+a	{color:#b77d3c;/*茶色*/}/*aでマークアップした文字全部を茶色にした*/
+
+a:hover {color:#ff8800/*オレンジ色*/;/*a:havorはリンクにカーソルを重ねたときのデザインができる*/}
+
+a img	{border:none;}
+
+aside	{border:solid 2px #d6c588;/*asideの罫線の色(茶色)*/
+	border-radius:5px;
+	padding:10px;
+	background-color:#edede3;/*aside全体を薄茶色にした*/
+	margin-top:40px;}
+
+aside h1{font-family:'Chango',cursive;/*Google Fontsでのフォントを利用している*/
+	font-size:18px;
+	color:#c39f4a;
+	border-bottom:dotted 1px #c39f4a;/*RELATED POSTSの下に点線の罫線を表示*/}
+
+aside ul{list-style-image:url(listmark.png);/*リストマークの画像を指定(今回は右向き三角)*/}
+/*リストマークの画像を指定するセレクタはliでも同じ表示がされる*/
+aside a{color:#000000;
+	text-decoration:none;}
+
+/*ナビゲーションメニュー*/
+nav ul{list-style-type:none;/*リストマークのスタイルを指定*/
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-left:0px;
+	font-size:0px;}
+/*nav liの中の内容をnav ulに記述すると失敗するのでどっちに書くかを正確に判断する*/
+nav li{display:inline;/*ボックスの種類を指定*/
+	font-size:12px;/*元々縦に並べられていた物を横の変えたので、改行によってうまれた半角の空白をfont-sizeで調整できる*/
+	border-right:solid 1px #aaaaaa;
+	padding-left:10px;/*ナビゲーションメニューと罫線の間に余白を加えた*/
+	padding-right:10px;}
+
+nav li:first-child{border-left:solid 1px #aaaaaa;}/*first-childは最初に現れる子要素に須対エルを適用します*/
+
+nav	{width:900px;/*以下三行はarticleとheader h1と同じように中央に配置している*/
+	margin-left:auto;
+	margin-right:auto;
+	text-align:right;/*テキストや画像の行揃えをしている。今回は右上に配置*/
+	margin-top:-27px;/*以下の二行により、メニューが中央に配置された*/
+	margin-bottom:10px;}
+
+nav a	{color:#000000;
+	text-decoration:none;}
+/*記事の一覧ページ*/
+#posts article img	{float:left;/*左に画像を配置し、その反対側にテキストを回り込ませる*/
+			margin-right:20px;}
+
+#posts article h1{font-size:24px;}/*h1セレクタで38pxと指定していた*/
+
+#posts section	{width:900px;
+		margin-left:auto;
+		margin-right:auto;}
+
+#posts header{margin-bottom:20px}/*headerセレクタで30pxと指定していた*/
+
+#posts time	{font-size:12px;/*お知らせページの投稿時間のデザイン*/
+		color:#ffffff;
+		background-color:#bdbc8f;
+		border-radius:10px;
+		padding:2px 20px 2px 20px;}
+
+#posts article a{color:#000000;/*黒*/
+		text-decoration:none;
+		display:block;/*<a>はデフォルトcssによってインラインボックスになっているから、ブロックボックスにした*/
+		overflow:hidden;/*親要素にフローティングボックスを含めて表示する*/
+		padding:20px;}
+
+#posts article a:hover{background-color:#ffe792;}
+
+#posts article	{padding:0;}
+
+/*トップページ*/
+
+#top header{margin-bottom:0;}/*index.htmlのbodyのidがtopなので、indexのみ反映*/
+
+#photo	{background-image:url(../image/photo.jpg);/*divで、サイト名とキャッチフレーズ(h1とp)をマークアップしている*/
+	background-repeat:no-repeat;
+	text-align:center;
+	padding-top:320px;
+	padding-bottom:80px;
+	background-position:50% 0%;
+	background-color:#3f8ad6;}
+
+#photo h1	{color:#ffffff;
+		font-size:60px;
+		font-family:'Chango',cursive;
+		zoom:1;
+		fillter:progid:DXImageTransform.Microsoft.
+		shadow(Color=#000000,Strength=5,Direction=135);
+		text-shadow:0px 5px 10px #000000;/*文字に影を付けた*/
+		}
+
+#photo p	{color:#ffffff;
+		font-size:20px;
+		font-weight:bold;
+		zoom:1;
+		fillter:progid:DXImageTransform.Microsoft.
+		shadow(Color=#000000,Strength=5,Direction=135);
+		text-shadow:0px 5px 10px #000000;
+}
+
+/*#photo h1,#photo p{color:rgba(255,255,255,0.5)}
+上記を記述することによって、文字を半透明にできる。文字に影をつけたままだと、影も透けて見えるようになってしまって、結果ねずみ色になってしまう
+*/
+
+#photo a{background-color:#ffaa00;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NTYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0ZGRTdCOCIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0ZGQUEwMCIgb2Zmc2V0PSIxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZzY1NikiIC8+Cjwvc3ZnPg==);
+	/*上記は、IE9以前はグラデーションに未対応なので、対応させるためのコード*/
+	background-image:-wekit-gradient(linear,left top,left bottom,from(#ffe7b8),to(#ffaa00);)/*古いios Androidに対応させるためにこの記述をする*/
+	background-image:-webkit-linear-gradient(top,#ffe7b8 0%,#ffaa00 100%);/*ios Android Safariに対応するために、webkitを使用(下の行とほぼ同じ)*/
+	background-image:linear-gradient(to bottom,#ffe7b8 0%,#ffaa00 100%);/*値は、グラデーションを指定*/
+	border-radius:10px;/*①各丸罫線*/
+	padding:10px 80px;/*②内側に余白を開ける*/
+	color:#000000;/*③フォントの色は黒*/
+	font-weight:bold;
+	text-decoration:none;}
+
+/*アバウトページ*/
+
+table,th,td	{border:solid 1px #aaaaaa;/*罫線で表作成*/}
+
+table	{border-collapse:collapse;/*罫線を重ねて表示。tableは、solidだと二重に表示される。なので、このプロパティを使用*/
+		margin-left:auto;/*これと下の行でテーブルを中央に*/
+		margin-right:auto;
+		margin-top:30px;}
+
+th,td	{padding:10px 20px 10px 20px;/*tableにこれを書いても意味ない*/}
+
+th	{width:150px;
+	background-color:#ffcb63;/*オレンジ色*/
+	text-align:left;}
+
+td	{width:450px;
+	background-color:#ffedce;/*薄いオレンジ色*/}
+
+caption	{font-weight:bold;
+		background-color:#d9d8a7;	
+		border-radius:10px;
+		padding:5px;
+		margin-bottom:10px;}
+
+/*お問い合わせページ*/
+input,textarea	{display:block;}
+
+input	{width:400px;}
+
+input[type="submit"]	{width:200px;
+	background-color:#ffaa00;/*以下4行は、#photo aセレクタの上から4行をコピーした*/
+	background-image:-wekit-gradient(linear,left top,left bottom,from(#ffe7b8),to(#ffaa00);)/*古いios Androidに対応させるためにこの記述をする*/
+	background-image:-webkit-linear-gradient(top,#ffe7b8 0%,#ffaa00 100%);/*ios Android Safariに対応するために、webkitを使用(下の行とほぼ同じ)*/
+	background-image:linear-gradient(to bottom,#ffe7b8 0%,#ffaa00 100%);
+	border:solid 1px #aaaaaa;
+	border-radius:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-weight:bold;}
+
+textarea	{width:600px;
+		height:120px;}
+
+/*二段組み*/
+
+#container	{width:900px;
+		margin-left:auto;
+		margin-right:auto;}
+
+#content	{width:600px;
+		float:left;}
+
+#menu		{width:270px;
+		float:right;}
+
+#content article{width:auto;/*articleセレクタで900pxと設定していたが、必要がなくなったので、この記述にした*/
+		box-shadow:1px 1px 5px #aaaaaa/*勝手にボックスに影を付けた*/}
+
+#content article img{width:400px;}/*div id=contentの横幅に収まるようにした*/
+
+#menu aside	{background-color:#ffffff;
+		border:solid 1px #aaaaaa;
+		padding:20px;/*なんかここはどっちでもいい気がしてきた*/
+		margin-top:0;/*articleと上の位置を合わせるため*/
+		margin-bottom:30px;
+		-webkit-box-shadow:1px 1px 3px #aaaaaa;
+		box-shadow:1px 1px 3px #aaaaaa;
+		border-radius:20px;}
