@@ -30,6 +30,8 @@ elif nameNumLabel==2:
     print("saito_asuka")
 elif nameNumLabel==3:
     print("shiraishi")
+    
+print(face_predict) #メンバーそれぞれの値を出力
 """
 if face_predict < 0.5:#0.5より低かったら秋元真夏になる
     face_text = face_labels[0]

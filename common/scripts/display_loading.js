@@ -1,5 +1,5 @@
 ﻿function disp(){
- $('.loading').append('<img src="common/images/loading.gif" width="100%">');
+ $('.loading').append('<img src="common/images/loading.gif" width="50%" style="text-align:center">');
 }
 
 /*
