@@ -27,7 +27,7 @@ if nameNumLabel== 0:
 elif nameNumLabel==1:
     print("hoshino")
 elif nameNumLabel==2:
-    print("saito")
+    print("saito_asuka")
 elif nameNumLabel==3:
     print("shiraishi")
 """

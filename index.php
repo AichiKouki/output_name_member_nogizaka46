@@ -22,7 +22,7 @@
 
 </header>
 <h1>このメンバー誰だっけ？？<br>画像からメンバーの名前を出力します</h1>
-<h2>名前の知りたいメンバーの画像を選択してね</h2>
+<h2>名前の知りたいメンバーの画像を選択してね(卒業メンバーは含まない)</h2>
 <form action="index.php" method="post" enctype="multipart/form-data">
 	<p>ファイル：<input type="file" name="userfile" size="40" /></p>
 	<p><input type="submit" onClick="disp()" value="アップロード" /></p>
@@ -42,11 +42,14 @@ exec($fullPath,$outpara);//pythonのプログラムにコール行為を発生�
 $nogi_name="";
 if($outpara[0]=="akimoto")  $nogi_name="秋元真夏";
 else if($outpara[0]=="hoshino")  $nogi_name="星野みなみ";
-else if($outpara[0]=="saito")  $nogi_name="齋藤飛鳥";
+else if($outpara[0]=="saito_asuka")  $nogi_name="齋藤飛鳥";
 else if($outpara[0]=="shiraishi")  $nogi_name="白石麻衣";
 
 echo "<h1>この方は".$nogi_name."さんです！"."</h1>";
 echo "<img src='upload/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
+echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+
 }
 ?>
 
