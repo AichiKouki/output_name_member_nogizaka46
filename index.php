@@ -38,8 +38,8 @@ $filename="uploadImage.jpg";
 $result = move_uploaded_file($tempfile, "upload/".$filename);//指定したパスにファイルを保存
 
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
-$fullPath = '/Users/aichitakumiki/anaconda3/bin/python2 ./crop_face.py '; //pythonに「検索語」を渡す
-exec($fullPath,$outpara);//pythonのプログラムにコール行為を発生させる
+$fullPath = '/Users/aichitakumiki/anaconda3/envs/python2/bin/python2 crop_face.py';
+exec($fullPath);//pythonのプログラムにコール行為を発生させる
 
 //Pythonを実行して、判別処理
 $fullPath = '/Users/aichitakumiki/anaconda3/bin/python ./predict_face.py '; //pythonに「検索語」を渡す
