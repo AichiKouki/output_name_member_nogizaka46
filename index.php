@@ -23,6 +23,9 @@
 </header>
 <h1>このメンバー誰だっけ？？<br>画像からメンバーの名前を出力します</h1>
 <h2>名前の知りたいメンバーの画像を選択してね(卒業メンバーは含まない)</h2>
+<h3>画像処理が失敗して判定ミスをする場合があるので、できるだけ顔だけが写っているような画像だと精度が上がります</h3>
+<img border="0" src="images/sample.jpg" width="150" height="150" alt="フリー素材">
+<h2>画像処理も行いますが、できるだけ上の画像のように顔だけが写ってる写真が好ましいです</h2>
 <form action="index.php" method="post" enctype="multipart/form-data">
 	<p>ファイル：<input type="file" name="userfile" size="40" /></p>
 	<p><input type="submit" onClick="disp()" value="アップロード" /></p>
@@ -58,7 +61,7 @@ echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
 echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 //メンバーそれぞれの値の結果を出力(デバッグ用)
 //echo "#{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
-//echo $outpara[1];
+echo $outpara[1];
 }
 ?>
 
