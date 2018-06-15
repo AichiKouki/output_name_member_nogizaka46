@@ -23,9 +23,8 @@
 </header>
 <h1>このメンバー誰だっけ？？<br>画像からメンバーの名前を出力します</h1>
 <h2>名前の知りたいメンバーの画像を選択してね(卒業メンバーは含まない)</h2>
-<h3>画像処理が失敗して判定ミスをする場合があるので、できるだけ顔だけが写っているような画像だと精度が上がります</h3>
+<h3>もし画像処理の失敗や判定にミスがあれば、下の画像のようにできるだけ顔だけが写ってるような画像でリトライしてみてください</h3>
 <img border="0" src="images/sample.jpg" width="150" height="150" alt="フリー素材">
-<h2>顔だけを抜き取る画像処理も行いますが、できるだけ上の画像のように顔だけが写ってる写真が好ましいです</h2>
 <form action="index.php" method="post" enctype="multipart/form-data">
 	<p>ファイル：<input type="file" name="userfile" size="40" /></p>
 	<p><input type="submit" onClick="disp()" value="アップロード" /></p>
