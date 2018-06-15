@@ -90,7 +90,8 @@ figure.photo-right img{width:550px;}/*imgを直接操作するので、このよ
 /*小見出し*/
 h2	{clear:both;
 	border-bottom:solid 5px #c39f4a;
-	margin-top:30px;}
+	margin-top:30px;
+}
 
 /*リンク*/
 a	{color:#b77d3c;/*茶色*/}/*aでマークアップした文字全部を茶色にした*/

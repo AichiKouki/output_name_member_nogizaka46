@@ -6,6 +6,13 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><!--必ずjQuery本体を先に読み込む-->
 <script src="common/scripts/display_loading.js"></script><!--ローディング画面表示機能-->
 <link rel="stylesheet" href="common/css/style.css"><!--ページ全体のデザイン-->
+<style>
+/*ローディング画面の配置処理*/
+div{
+	float:right; /*div要素を右に回り込みをさせる*/
+	margin-left:0px;/*サンプル画像とローディング画像の間に余白が大きいので修正する*/
+}
+</style>
 </head>
 <body>
 <header>
@@ -21,22 +28,32 @@
 </nav>
 
 </header>
-<h1>このメンバー誰だっけ？？<br>画像からメンバーの名前を出力します</h1>
+<!--システムの注意書き-->
+<h1>このメンバー誰だっけ？？<br>画像からメンバーの名前を表示します</h1>
 <h2>名前の知りたいメンバーの画像を選択してね(卒業メンバーは含まない)</h2>
 <h3>もし画像処理の失敗や判定にミスがあれば、下の画像のようにできるだけ顔だけが写ってるような画像でリトライしてみてください</h3>
 <img border="0" src="images/sample.jpg" width="150" height="150" alt="フリー素材">
+<div class="loading"></div><!--ローディング画面の表示部分-->
+<h3>※判定ミスをしやすい画像の特徴</h3>
+<ul>
+<li>目をかなり細めて笑っている</li>
+<li>複数の人物が写っている</li>
+<li>乃木坂46のメンバーではない</li>
+<li>文字や線などが含まれている複雑な写真(ポスターなど)</li>
+</ul>
+<h2></h2>
+<!--実際に画像を入力するフォーム-->
 <form action="index.php" method="post" enctype="multipart/form-data">
 	<p>ファイル：<input type="file" name="userfile" size="40" /></p>
 	<p><input type="submit" onClick="disp()" value="アップロード" /></p>
 </form>
-<div class="loading"></div>
 <?php
 //ファイルがセットされていたら
 if(isset($_FILES["userfile"]["tmp_name"])){
 //index.htmlから、画像をアップロードされるので、その画像をローカルに保存
 $tempfile = $_FILES["userfile"]["tmp_name"];
 //$filename = $_FILES["userfile"]["name"]; //アップされたファイルの名前を取得できる
-$filename="uploadImage.jpg";
+$filename="uploadImage.jpg";//判定対象の画像のファイル名
 $result = move_uploaded_file($tempfile, "upload/".$filename);//指定したパスにファイルを保存
 
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
@@ -61,7 +78,7 @@ echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
 echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 
 //メンバーそれぞれの値の結果を出力(デバッグ用)
-//echo "#{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
+echo "{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
 echo $outpara[1];
 }
 ?>

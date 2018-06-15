@@ -1,4 +1,5 @@
-﻿var waitList=[];  
+﻿//ファイルをドラッグ&ドロップでアップするためのプログラム
+var waitList=[];  
 function addWaitList(files){  
     for(var i=0;i<files.length;i++){  
         var sameName=-1;  
