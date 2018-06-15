@@ -47,6 +47,7 @@ exec($fullPath);//pythonのプログラムにコール行為を発生させる
 //Pythonを実行して、判別処理
 $fullPath = '/Users/aichitakumiki/anaconda3/bin/python ./predict_face.py '; //pythonに「検索語」を渡す
 exec($fullPath,$outpara);//pythonのプログラムにコール行為を発生させる
+
 $nogi_name="";
 //Python側でprintされた文字列を取得して、その結果に基づいて判定処理
 if($outpara[0]=="akimoto")  $nogi_name="秋元真夏";
@@ -59,6 +60,7 @@ echo "<h1>この方は".$nogi_name."さんです！"."</h1>";
 echo "<img src='upload/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
 echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+
 //メンバーそれぞれの値の結果を出力(デバッグ用)
 //echo "#{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
 echo $outpara[1];
