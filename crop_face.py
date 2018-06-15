@@ -4,7 +4,7 @@ import cv2
 #OpenCVで顔画像を切り抜いて保存するプログラム
 input_folder = "upload"
 output_folder = "upload"
-cascade_path = "./trained_models/haarcascade_frontalface_alt2.xml"
+cascade_path = "./trained_models_opencv/haarcascade_frontalface_alt2.xml"
 #listdirを利用してフォルダ内のファイルを取得し、OpenCVを利用して顔画像を切り出す
 files = os.listdir("./" + input_folder + "/")
 
@@ -27,7 +27,7 @@ for i in range(0, len(files)):
                 dst = cv_image[y:y + h, x:x + w]
             dst = cv2.resize(dst, (150, 150))
             #cv2.imwrite("./" + output_folder + "/" + output_folder + "_" + str(i + 1) + ".jpg", dst)
-            cv2.imwrite("./" + output_folder + "/" + "" + str(i + 1) + ".jpg", dst)
+            cv2.imwrite("./" + output_folder + "/" + "uploadImage" + ".jpg", dst)
             print("crop done > " + output_folder + "_" + str(i + 1) + ".jpg")
 
         else:

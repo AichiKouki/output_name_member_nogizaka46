@@ -10,7 +10,8 @@ body	{font-family:'メイリオ',/*小さい文字でも滑らか表示できる
 	sans-serif;
 	background-color: white;
 	margin:0px;
-	background-image:url(back.png);}/*デフォルトスタイルシートによって、ボックスの周りに余白が作られていたので、その余白を削除した*/
+	/*background-image:url(back.png);*/
+	}/*デフォルトスタイルシートによって、ボックスの周りに余白が作られていたので、その余白を削除した*/
 
 h1	{font-size:38px;/*タイトルの文字のサイズを変更します。*/
 	margin-top:0;

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>メンバーの名前を当てるAI</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><!--必ずjQuery本体を先に読み込む-->
 <script src="common/scripts/display_loading.js"></script><!--ローディング画面表示機能-->
 <link rel="stylesheet" href="common/css/style.css"><!--ページ全体のデザイン-->
@@ -29,22 +29,29 @@
 </form>
 <div class="loading"></div>
 <?php
+//ファイルがセットされていたら
 if(isset($_FILES["userfile"]["tmp_name"])){
 //index.htmlから、画像をアップロードされるので、その画像をローカルに保存
 $tempfile = $_FILES["userfile"]["tmp_name"];
-//$filename = $_FILES["userfile"]["name"]; //アップされた本当のファイル名
+//$filename = $_FILES["userfile"]["name"]; //アップされたファイルの名前を取得できる
 $filename="uploadImage.jpg";
-$result = move_uploaded_file($tempfile, "upload/".$filename);
+$result = move_uploaded_file($tempfile, "upload/".$filename);//指定したパスにファイルを保存
+
+//入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
+$fullPath = '/Users/aichitakumiki/anaconda3/bin/python2 ./crop_face.py '; //pythonに「検索語」を渡す
+exec($fullPath,$outpara);//pythonのプログラムにコール行為を発生させる
 
 //Pythonを実行して、判別処理
 $fullPath = '/Users/aichitakumiki/anaconda3/bin/python ./predict_face.py '; //pythonに「検索語」を渡す
 exec($fullPath,$outpara);//pythonのプログラムにコール行為を発生させる
 $nogi_name="";
+//Python側でprintされた文字列を取得して、その結果に基づいて判定処理
 if($outpara[0]=="akimoto")  $nogi_name="秋元真夏";
 else if($outpara[0]=="hoshino")  $nogi_name="星野みなみ";
 else if($outpara[0]=="saito_asuka")  $nogi_name="齋藤飛鳥";
 else if($outpara[0]=="shiraishi")  $nogi_name="白石麻衣";
 
+//判定結果を出力
 echo "<h1>この方は".$nogi_name."さんです！"."</h1>";
 echo "<img src='upload/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
