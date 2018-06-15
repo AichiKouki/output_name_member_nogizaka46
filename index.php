@@ -8,9 +8,13 @@
 <link rel="stylesheet" href="common/css/style.css"><!--ページ全体のデザイン-->
 <style>
 /*ローディング画面の配置処理*/
-div{
+.loading{
 	float:right; /*div要素を右に回り込みをさせる*/
 	margin-left:0px;/*サンプル画像とローディング画像の間に余白が大きいので修正する*/
+}
+
+.advice{
+	float:right;
 }
 </style>
 </head>
@@ -33,7 +37,7 @@ div{
 <h2>名前の知りたいメンバーの画像を選択してね(卒業メンバーは含まない)</h2>
 <h3>もし画像処理の失敗や判定にミスがあれば、下の画像のようにできるだけ顔だけが写ってるような画像でリトライしてみてください</h3>
 <img border="0" src="images/sample.jpg" width="150" height="150" alt="フリー素材">
-<div class="loading"></div><!--ローディング画面の表示部分-->
+<div class="advice">
 <h3>※判定ミスをしやすい画像の特徴</h3>
 <ul>
 <li>目をかなり細めて笑っている</li>
@@ -41,6 +45,8 @@ div{
 <li>乃木坂46のメンバーではない</li>
 <li>文字や線などが含まれている複雑な写真(ポスターなど)</li>
 </ul>
+</div>
+<div class="loading"></div><!--ローディング画面の表示部分-->
 <h2></h2>
 <!--実際に画像を入力するフォーム-->
 <form action="index.php" method="post" enctype="multipart/form-data">
