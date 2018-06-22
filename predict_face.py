@@ -4,7 +4,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 import numpy as np
 #変更点
-rgb_image = './upload/uploadImage.jpg' 
+rgb_image = './upload_after/uploadImage.jpg' 
 
 #変更点
 model = load_model('./trained_models/tiny_CNN_face.h5')

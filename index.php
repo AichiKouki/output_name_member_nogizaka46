@@ -60,7 +60,7 @@ if(isset($_FILES["userfile"]["tmp_name"])){
 $tempfile = $_FILES["userfile"]["tmp_name"];
 //$filename = $_FILES["userfile"]["name"]; //アップされたファイルの名前を取得できる
 $filename="uploadImage.jpg";//判定対象の画像のファイル名
-$result = move_uploaded_file($tempfile, "upload/".$filename);//指定したパスにファイルを保存
+$result = move_uploaded_file($tempfile, "upload_before/".$filename);//指定したパスにファイルを保存
 
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
 $fullPath = '/Users/aichitakumiki/anaconda3/envs/python2/bin/python2 crop_face.py';
@@ -79,13 +79,15 @@ else if($outpara[0]=="shiraishi")  $nogi_name="白石麻衣";
 
 //判定結果を出力
 echo "<h1>この方は".$nogi_name."さんです！"."</h1>";
-echo "<img src='upload/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+echo "<img src='upload_before/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+echo "<img src='common/images/yajirusi.png' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+echo "<img src='upload_after/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
 echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 
 //メンバーそれぞれの値の結果を出力(デバッグ用)
-echo "{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
-echo $outpara[1];
+//echo "{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
+//echo $outpara[1];
 }
 ?>
 

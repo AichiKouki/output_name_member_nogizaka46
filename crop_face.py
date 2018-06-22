@@ -2,8 +2,8 @@
 import os
 import cv2
 #OpenCVで顔画像を切り抜いて保存するプログラム
-input_folder = "upload"
-output_folder = "upload"
+input_folder = "upload_before"#加工前の画像のディレクトリ
+output_folder = "upload_after"#加工後に出力するディレクトリ
 cascade_path = "./trained_models_opencv/haarcascade_frontalface_alt2.xml"
 #listdirを利用してフォルダ内のファイルを取得し、OpenCVを利用して顔画像を切り出す
 files = os.listdir("./" + input_folder + "/")
