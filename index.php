@@ -41,9 +41,11 @@
 <h3>※判定ミスをしやすい画像の特徴</h3>
 <ul>
 <li>目をかなり細めて笑っている</li>
+<li>斜めを向いている</li>
 <li>複数の人物が写っている</li>
-<li>乃木坂46のメンバーではない</li>
+<li>女の子特有の、画像加工がされていたり、化粧の違いによって判定のミスになりやすい</li>
 <li>文字や線などが含まれている複雑な写真(ポスターなど)</li>
+<li>乃木坂46のメンバーではない</li>
 </ul>
 </div>
 <div class="loading"></div><!--ローディング画面の表示部分-->
@@ -64,8 +66,7 @@ $result = move_uploaded_file($tempfile, "upload_before/".$filename);//指定し�
 
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
 $fullPath = '/Users/aichitakumiki/anaconda3/envs/python2/bin/python2 crop_face.py';
-exec($fullPath,$outpara1);//pythonのプログラムにコール行為を発生させる
-echo $outpara1[0];
+exec($fullPath,$outpara1);//outpara1の部分は、またexec関数使うなら名前は被っちゃダメ
 //この時点で画像処理に失敗していたら、判定を中断
 if($outpara1[0]=="can't_crop"){
 	echo "<h1>画像処理に失敗したため、判定できません</h1>";
