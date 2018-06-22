@@ -56,20 +56,6 @@
 <?php
 //ファイルがセットされていたら
 if(isset($_FILES["userfile"]["tmp_name"])){
-	//最初にupload_afterの中の画像を削除(画像処理が失敗したか確かめたいから)
-	    $dir = "./upload_after";
-    for($i=0;$i<2;$i++){
-        if (!$handle=opendir($dir)) die("ディレクトリの読み込みに失敗しました");
-        while($filename=readdir($handle))
-        {
-         if(!preg_match("/^\./", $filename))
-         {
-         if (!unlink("$dir/$filename")) die("ファイルの削除に失敗しました");
-         }
-        }
-}
-
-	
 //index.htmlから、画像をアップロードされるので、その画像をローカルに保存
 $tempfile = $_FILES["userfile"]["tmp_name"];
 //$filename = $_FILES["userfile"]["name"]; //アップされたファイルの名前を取得できる
@@ -78,10 +64,10 @@ $result = move_uploaded_file($tempfile, "upload_before/".$filename);//指定し�
 
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
 $fullPath = '/Users/aichitakumiki/anaconda3/envs/python2/bin/python2 crop_face.py';
-exec($fullPath);//pythonのプログラムにコール行為を発生させる
+exec($fullPath,$outpara1);//pythonのプログラムにコール行為を発生させる
+echo $outpara1[0];
 //この時点で画像処理に失敗していたら、判定を中断
-$filename="./upload_after/uploadImage.jpg";
-if(!(file_exists($filename))){
+if($outpara1[0]=="can't_crop"){
 	echo "<h1>画像処理に失敗したため、判定できません</h1>";
 	exit();
 }
