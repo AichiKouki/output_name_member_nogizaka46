@@ -9,10 +9,10 @@ cascade_path = "./trained_models_opencv/haarcascade_frontalface_alt2.xml"
 files = os.listdir("./" + input_folder + "/")
 
 for i in range(0, len(files)):
-    print (files[i])
+    #print (files[i])
     root, extension = os.path.splitext(files[i])
     if files[i] == ".DS_Store":
-        print("This is no image.")
+        #print("This is no image.")
     elif extension == ".png" or ".jpeg" or ".jpg":
         portrait = "./" + input_folder + "/" + files[i]
         cv_image = cv2.imread(portrait)
@@ -28,7 +28,7 @@ for i in range(0, len(files)):
             dst = cv2.resize(dst, (150, 150))
             #cv2.imwrite("./" + output_folder + "/" + output_folder + "_" + str(i + 1) + ".jpg", dst)
             cv2.imwrite("./" + output_folder + "/" + "uploadImage" + ".jpg", dst)
-            print("crop done > " + output_folder + "_" + str(i + 1) + ".jpg")
+            #print("crop done > " + output_folder + "_" + str(i + 1) + ".jpg")
 
         else:
-            print("can't crop")
+            print("can't_crop")
