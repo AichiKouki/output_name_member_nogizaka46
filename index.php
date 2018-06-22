@@ -56,20 +56,6 @@
 <?php
 //ファイルがセットされていたら
 if(isset($_FILES["userfile"]["tmp_name"])){
-	//最初にupload_afterの中の画像を削除(画像処理が失敗したか確かめたいから)
-	    $dir = "./upload_after";
-    for($i=0;$i<2;$i++){
-        if (!$handle=opendir($dir)) die("ディレクトリの読み込みに失敗しました");
-        while($filename=readdir($handle))
-        {
-         if(!preg_match("/^\./", $filename))
-         {
-         if (!unlink("$dir/$filename")) die("ファイルの削除に失敗しました");
-         }
-        }
-}
-
-	
 //index.htmlから、画像をアップロードされるので、その画像をローカルに保存
 $tempfile = $_FILES["userfile"]["tmp_name"];
 //$filename = $_FILES["userfile"]["name"]; //アップされたファイルの名前を取得できる
@@ -79,12 +65,7 @@ $result = move_uploaded_file($tempfile, "upload_before/".$filename);//指定し�
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
 $fullPath = '/Users/aichitakumiki/anaconda3/envs/python2/bin/python2 crop_face.py';
 exec($fullPath);//pythonのプログラムにコール行為を発生させる
-//この時点で画像処理に失敗していたら、判定を中断
-$filename="./upload_after/uploadImage.jpg";
-if(!(file_exists($filename))){
-	echo "<h1>画像処理に失敗したため、判定できません</h1>";
-	exit();
-}
+
 //Pythonを実行して、判別処理
 $fullPath = '/Users/aichitakumiki/anaconda3/bin/python ./predict_face.py '; //pythonに「検索語」を渡す
 exec($fullPath,$outpara);//pythonのプログラムにコール行為を発生させる
@@ -98,13 +79,9 @@ else if($outpara[0]=="shiraishi")  $nogi_name="白石麻衣";
 
 //判定結果を出力
 echo "<h1>この方は".$nogi_name."さんです！"."</h1>";
-//ユーザーがアップした画像をそのまま表示
 echo "<img src='upload_before/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
-//画像加工前と加工後を比較するときの矢印の画像を表示
 echo "<img src='common/images/yajirusi.png' style='float:left;margin-right:4px;margin-bottom:4px;''>";
-//ユーザーがアップした画像の顔だけ抜き取った画像処理後の画像を表示
 echo "<img src='upload_after/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
-//実際に判定結果を出力
 echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
 echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 
