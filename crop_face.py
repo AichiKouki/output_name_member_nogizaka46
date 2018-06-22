@@ -9,11 +9,10 @@ cascade_path = "./trained_models_opencv/haarcascade_frontalface_alt2.xml"
 files = os.listdir("./" + input_folder + "/")
 hoge=""
 for i in range(0, len(files)):
-    #print (files[i])
     root, extension = os.path.splitext(files[i])
     if files[i] == ".DS_Store":
         #print("This is no image.")
-        hoge="hoge"
+        hoge="hoge" #上記のものをコメントアウトにしたいので意味のない処理をあえてした
     elif extension == ".png" or ".jpeg" or ".jpg":
         portrait = "./" + input_folder + "/" + files[i]
         cv_image = cv2.imread(portrait)
