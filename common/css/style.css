@@ -32,8 +32,12 @@ header {background-color:#ffffff;/*ヘッダーの背景を白色にした*/
 header h1{font-family: 'Chango', cursive;/*header h1とは、headerの中のh1をデザインするということ*/
 	font-size:24px;/*縦方向の視線移動のみで負荷を軽減するためにarticleと配置をそろえた*/
 	width:900px;
-	margin-left:auto;
-	margin-right:auto;}
+	/*Google Fontで表示されてる部分を中央に合わせている*/
+	/*
+	margin-left:auto; 
+	margin-right:auto;
+	*/
+	}
 
 header h1 a	{text-decoration:none;
 		color:#000000;}
@@ -282,3 +286,8 @@ textarea	{width:600px;
 		-webkit-box-shadow:1px 1px 3px #aaaaaa;
 		box-shadow:1px 1px 3px #aaaaaa;
 		border-radius:20px;}
+
+/*注意書きの部分*/
+#caution{
+	margin-top:0px;
+}
