@@ -41,7 +41,7 @@
 <h3>※判定ミスをしやすい画像の特徴</h3>
 <ul id="caution">
 <li>目をかなり細めて笑っている</li>
-<li>斜めを向いている</li>
+<li>横を向いている</li>
 <li>認識対象のメンバーが遠くにいる</li>
 <li>複数の人物が写っている</li>
 <li>女性にありがちな、画像加工がされていたり化粧の有無や違い</li>
@@ -62,7 +62,7 @@ if(isset($_FILES["userfile"]["tmp_name"])){
 //index.htmlから、画像をアップロードされるので、その画像をローカルに保存
 $tempfile = $_FILES["userfile"]["tmp_name"];
 //$filename = $_FILES["userfile"]["name"]; //アップされたファイルの名前を取得できる
-$filename="uploadImage.jpg";//判定対象の画像のファイル名
+$filename="uploadImage.jpg";//判定対象の画像となる、アップロードされたファイル名を決める
 $result = move_uploaded_file($tempfile, "upload_before/".$filename);//指定したパスにファイルを保存
 
 //入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
@@ -87,7 +87,7 @@ else if($outpara[0]=="shiraishi")  $nogi_name="白石麻衣";
 //判定結果を出力
 echo "<h1>この方は".$nogi_name."さんだと思います！"."</h1>";
 //ユーザーがアップした画像をそのまま表示
-echo "<img src='upload_before/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
+echo "<img src='upload_before/uploadImage.jpg' style='float:left;margin-right:4px;margin-bottom:4px;width:400px;height:auto;'''>";
 //画像加工前と加工後を比較するときの矢印の画像を表示
 echo "<img src='common/images/yajirusi.png' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 //ユーザーがアップした画像の顔だけ抜き取った画像処理後の画像を表示
