@@ -211,3 +211,8 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+/*注意喚起の部分*/
+.advice{
+}
+

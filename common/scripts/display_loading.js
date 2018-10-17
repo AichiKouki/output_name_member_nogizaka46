@@ -1,6 +1,6 @@
 ﻿//ローディング画像の表示処理
 function disp(){
- $('.loading').append('<img src="common/images/loading.gif" width="50%" style="text-align:center">');
+ $('.loading').append('<img src="common/images/loading.gif" width="100%" style="text-align:center">');
 }
 
 /*

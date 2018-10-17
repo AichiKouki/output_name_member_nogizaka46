@@ -12,22 +12,18 @@
 	float:right; /*div要素を右に回り込みをさせる*/
 	margin-left:0px;/*サンプル画像とローディング画像の間に余白が大きいので修正する*/
 }
-
-.advice{
-	float:right;
-}
 </style>
 </head>
 <body>
 <header>
-<h1><a href="index.html"><img src="common/images/Nogizaka_logo.png" alt="">is_this_member_who</a></h1><!--ここはGoogleFontsから読み込んでいるので、表示が少しだけ遅い-->
-
-<nav><!--ナビゲーションメニューであることを明確にする-->
+<h1><a href="index.html"><img src="common/images/Nogizaka_logo.png" alt="">文化祭企画</a></h1><!--ここはGoogleFontsから読み込んでいるので、表示が少しだけ遅い-->
+<!--ナビゲーションメニューであることを明確にする-->
+<nav>
 <ul><!--ここにリストを作成した瞬間に、header h1のGoogleFontsによるフォントが変わってしまった-->
-<li><a href="index.html">トップ</a></li>
-<li><a href="news.html">お知らせ</a></li>
-<li><a href="about.html">サイトについて</a></li>
-<li><a href="contact.html">お問い合わせ</a></li>
+<li><a href="index.html">no_data</a></li>
+<li><a href="news.html">no_data</a></li>
+<li><a href="about.html">no_data</a></li>
+<li><a href="contact.html">no_data</a></li>
 <ul>
 </nav>
 
@@ -36,7 +32,6 @@
 <h1>このメンバー誰だっけ？？画像からメンバーの名前を表示します</h1>
 <h2>名前の知りたいメンバーの画像を選択してね(卒業メンバーは含まない)</h2>
 <h3>もし画像処理の失敗や判定にミスがあれば、下の画像のようにできるだけ顔だけが写ってるような画像でリトライしてみてください</h3>
-<img border="0" src="images/sample.jpg" width="150" height="150" alt="フリー素材">
 <div class="advice">
 <h3>※判定ミスをしやすい画像の特徴</h3>
 <ul id="caution">
@@ -66,12 +61,12 @@ $tempfile = $_FILES["userfile"]["tmp_name"];
 $filename="uploadImage.jpg";//判定対象の画像となる、アップロードされたファイル名を決める
 $result = move_uploaded_file($tempfile, "upload_before/".$filename);//指定したパスにファイルを保存
 
-//入力された画像をopenCVで画像処理して、顔だけを抜き取る(成功しないこともある)
+//入力された画像をopenCVで画像処理して、顔だけを抜き取る
 $fullPath = '/Users/aichitakumiki/anaconda3/envs/python2/bin/python2 crop_face.py';
 exec($fullPath,$outpara1);//outpara1の部分は、またexec関数使うなら名前は被っちゃダメ
 //この時点で画像処理に失敗していたら、判定を中断
 if($outpara1[0]=="can't_crop"){
-	echo "<h1>画像処理に失敗したため、判定できません</h1>";
+	echo "<h2>画像処理ができない画像のため、判定できません。他の画像で試してみてね</h2>";
 	exit();
 }
 //Pythonを実行して、判別処理
@@ -98,13 +93,13 @@ echo "<h2>ちなみに、".$nogi_name."さんはこの方です</h2>";
 echo "<img src='images/all/1/".$outpara[0].".jpg' style='float:left;margin-right:4px;margin-bottom:4px;''>";
 
 //メンバーそれぞれの値の結果を出力(デバッグ用)
-//echo "{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
-//echo $outpara[1];
+echo "{'akimoto': 0, 'hoshino': 1, 'saito': 2, 'shiraishi': 3}<br>";
+echo $outpara[1];
 }
 ?>
 
 <footer>
-<small>Copyright &copy; is_this_member_who,all rights reserved.</small>
+<small>Copyright &copy; Answer_the_name_of_the_member_AI,all rights reserved.</small>
 </footer>
 
 </body>
