@@ -32,10 +32,3 @@ elif nameNumLabel==3:
     print("shiraishi")
     
 print(face_predict) #メンバーそれぞれの値を出力
-"""
-if face_predict < 0.5:#0.5より低かったら秋元真夏になる
-    face_text = face_labels[0]
-elif face_predict >= 0.5:#0.5より高かったら星野みなみになる
-    face_text = face_labels[1]
-print(face_text, face_predict[0][0])
-"""
